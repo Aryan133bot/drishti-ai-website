@@ -6,70 +6,131 @@
 <title>DRISHTI.AI | Imagine Cup Cybersecurity Project</title>
 
 <style>
-body {
+:root {
+    --bg: #0b1220;
+    --card: #111c33;
+    --primary: #1e90ff;
+    --secondary: #22c1c3;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+}
+
+* {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #0b1220;
-    color: #e5e7eb;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
     line-height: 1.75;
 }
 
+/* HEADER */
 header {
-    background: linear-gradient(135deg, #1d4ed8, #1e40af);
-    padding: 80px 20px;
+    padding: 90px 20px;
     text-align: center;
+    background: linear-gradient(135deg, #0f1e3d, #0b1220);
+}
+
+.logo {
+    width: 110px;
+    margin-bottom: 20px;
 }
 
 header h1 {
-    font-size: 3.2rem;
-    margin-bottom: 10px;
+    font-size: 3.4rem;
+    font-weight: 700;
+}
+
+header span {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 header p {
-    max-width: 900px;
-    margin: auto;
+    max-width: 850px;
+    margin: 20px auto 0;
     font-size: 1.2rem;
+    color: var(--muted);
 }
 
+/* SECTIONS */
 section {
-    padding: 65px 20px;
     max-width: 1150px;
     margin: auto;
+    padding: 75px 20px;
 }
 
 h2 {
-    color: #60a5fa;
+    font-size: 2rem;
     margin-bottom: 18px;
+    color: #93c5fd;
 }
 
+/* CARDS */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 22px;
+    gap: 25px;
 }
 
 .card {
-    background-color: #1e293b;
-    padding: 28px;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    background: var(--card);
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
+.card h3 {
+    color: #bfdbfe;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--muted);
+}
+
+/* LIST */
 ul {
     padding-left: 22px;
 }
 
-footer {
-    background-color: #020617;
-    text-align: center;
-    padding: 32px;
-    font-size: 0.9rem;
-    color: #94a3b8;
+li {
+    margin-bottom: 8px;
+    color: var(--muted);
 }
 
-.highlight {
-    color: #38bdf8;
-    font-weight: bold;
+/* CONTACT */
+.contact-box {
+    background: linear-gradient(135deg, #0f1e3d, #111c33);
+    padding: 35px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.contact-box p {
+    color: var(--muted);
+    margin-bottom: 10px;
+}
+
+.contact-box a {
+    color: #60a5fa;
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* FOOTER */
+footer {
+    background: #020617;
+    padding: 35px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--muted);
 }
 </style>
 </head>
@@ -77,40 +138,41 @@ footer {
 <body>
 
 <header>
-    <h1>DRISHTI.AI</h1>
+    <img src="logo.png" alt="DRISHTI.AI Logo" class="logo">
+    <h1>DRISHTI<span>.AI</span></h1>
     <p>
-        An AI-powered cybersecurity solution designed to help individuals
-        identify online scams and phishing messages before harm occurs.
+        An AI‑powered cybersecurity solution designed to help individuals
+        identify scam and phishing messages and make safer online decisions.
     </p>
 </header>
 
 <section>
     <h2>🚨 Problem Statement</h2>
     <p>
-        Millions of people receive scam and phishing messages daily through
-        SMS, email, and messaging applications. These messages often use fear,
-        urgency, or false promises to manipulate users into clicking malicious
-        links or sharing sensitive personal information.
+        Online scams and phishing attacks are increasing rapidly across
+        SMS, email, and messaging platforms. These messages often use fear,
+        urgency, or false authority to manipulate users into clicking
+        malicious links or sharing sensitive information.
     </p>
     <p>
-        Most individuals lack the technical knowledge to verify whether a
-        message is genuine or fraudulent, leading to financial loss, identity
-        theft, and emotional stress.
+        Many individuals lack the technical knowledge required to determine
+        whether a message is genuine or fraudulent, leading to financial loss,
+        identity theft, and emotional stress.
     </p>
 </section>
 
 <section>
     <h2>💡 Our Solution</h2>
     <p>
-        <span class="highlight">DRISHTI.AI</span> provides a simple and accessible
-        AI-based web application where users can paste any suspicious message.
-        The system analyzes the text and classifies it as
+        <strong>DRISHTI.AI</strong> is a simple and accessible web‑based tool
+        where users can paste any suspicious message for analysis.
+        The system uses AI to evaluate the content and classifies it as
         <strong>Low</strong>, <strong>Medium</strong>, or <strong>High Risk</strong>.
     </p>
     <p>
-        Along with the risk level, DRISHTI.AI explains the reasoning in clear,
-        non-technical language and provides general safety guidance. The goal is
-        to support informed decision-making rather than creating fear.
+        Along with the risk level, DRISHTI.AI provides a clear explanation
+        in non‑technical language and general safety guidance. The goal is
+        awareness and prevention, not fear or dependency.
     </p>
 </section>
 
@@ -118,21 +180,21 @@ footer {
     <h2>🛡️ Key Features</h2>
     <div class="grid">
         <div class="card">
-            <h3>User-Friendly Design</h3>
+            <h3>AI‑Based Message Understanding</h3>
             <p>
-                Designed for all age groups with no technical background
-                required.
+                Detects common scam patterns and social‑engineering tactics
+                used in fraudulent messages.
             </p>
         </div>
         <div class="card">
-            <h3>AI-Based Detection</h3>
+            <h3>Clear Risk Classification</h3>
             <p>
-                Uses natural language understanding to identify common scam
-                and phishing patterns.
+                Presents results as Low, Medium, or High risk for easy
+                understanding by non‑technical users.
             </p>
         </div>
         <div class="card">
-            <h3>Responsible AI Use</h3>
+            <h3>Responsible Use of AI</h3>
             <p>
                 Does not provide legal or financial advice and does not claim
                 100% accuracy.
@@ -144,40 +206,46 @@ footer {
 <section>
     <h2>⚙️ Technology Stack</h2>
     <ul>
-        <li>:contentReference[oaicite:1]{index=1} – Cloud hosting and deployment</li>
+        <li>Microsoft Azure – Cloud hosting and deployment</li>
         <li>Azure OpenAI – Scam and phishing text analysis</li>
-        <li>Azure AI Language – Message understanding and classification</li>
+        <li>Azure AI Language – Natural language understanding</li>
         <li>Python – Backend logic</li>
         <li>FastAPI – API development</li>
-        <li>HTML, CSS, JavaScript – Frontend interface</li>
+        <li>HTML, CSS, JavaScript – Web interface</li>
     </ul>
 </section>
 
 <section>
     <h2>👥 Team – DRISHTI Tech</h2>
     <p>
-        “Drishti” means <strong>vision or insight</strong>, reflecting our mission
-        to help users clearly recognize digital threats.
+        “Drishti” means vision or insight, representing our goal to help
+        users clearly recognize digital threats. We are a student team
+        passionate about making cybersecurity accessible to everyone.
     </p>
     <p>
-        We are a student team passionate about applying AI to solve real-world
-        cybersecurity problems. Team members contribute across ideation,
-        backend development, AI integration, and user experience design.
+        Each team member contributes across idea development, backend
+        systems, AI integration, and user experience design. Through
+        Imagine Cup, we aim to learn, innovate, and create social impact
+        using responsible AI.
     </p>
 </section>
 
 <section>
     <h2>🏆 Imagine Cup Alignment</h2>
     <p>
-        DRISHTI.AI aligns with the Cybersecurity track of
-        :contentReference[oaicite:2]{index=2}
-        by demonstrating how AI can protect individuals, not just enterprises.
+        DRISHTI.AI aligns with the Cybersecurity category of Imagine Cup by
+        demonstrating how AI can protect individuals, not just large
+        organizations. The solution is fully software‑based, scalable,
+        and accessible to anyone with an internet connection.
     </p>
-    <p>
-        The solution is fully software-based, scalable, and accessible to anyone
-        with an internet connection. Future plans include multi-language support
-        and continuous improvement of scam detection accuracy.
-    </p>
+</section>
+
+<section>
+    <h2>📧 Contact Us</h2>
+    <div class="contact-box">
+        <p>For questions, feedback, or collaboration:</p>
+        <a href="mailto:drishtiaims@gmail.com">drishtiaims@gmail.com</a>
+    </div>
 </section>
 
 <footer>
