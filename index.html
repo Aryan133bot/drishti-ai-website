@@ -1,256 +1,174 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DRISHTI.AI | Imagine Cup Cybersecurity Project</title>
-
-<style>
-:root {
-    --bg: #0b1220;
-    --card: #111c33;
-    --primary: #1e90ff;
-    --secondary: #22c1c3;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.75;
-}
-
-/* HEADER */
-header {
-    padding: 90px 20px;
-    text-align: center;
-    background: linear-gradient(135deg, #0f1e3d, #0b1220);
-}
-
-.logo {
-    width: 110px;
-    margin-bottom: 20px;
-}
-
-header h1 {
-    font-size: 3.4rem;
-    font-weight: 700;
-}
-
-header span {
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-header p {
-    max-width: 850px;
-    margin: 20px auto 0;
-    font-size: 1.2rem;
-    color: var(--muted);
-}
-
-/* SECTIONS */
-section {
-    max-width: 1150px;
-    margin: auto;
-    padding: 75px 20px;
-}
-
-h2 {
-    font-size: 2rem;
-    margin-bottom: 18px;
-    color: #93c5fd;
-}
-
-/* CARDS */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-}
-
-.card {
-    background: var(--card);
-    padding: 30px;
-    border-radius: 14px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-
-.card h3 {
-    color: #bfdbfe;
-    margin-bottom: 10px;
-}
-
-.card p {
-    color: var(--muted);
-}
-
-/* LIST */
-ul {
-    padding-left: 22px;
-}
-
-li {
-    margin-bottom: 8px;
-    color: var(--muted);
-}
-
-/* CONTACT */
-.contact-box {
-    background: linear-gradient(135deg, #0f1e3d, #111c33);
-    padding: 35px;
-    border-radius: 16px;
-    text-align: center;
-}
-
-.contact-box p {
-    color: var(--muted);
-    margin-bottom: 10px;
-}
-
-.contact-box a {
-    color: #60a5fa;
-    font-size: 1.1rem;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-/* FOOTER */
-footer {
-    background: #020617;
-    padding: 35px;
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--muted);
-}
-</style>
-</head>
-
-<body>
-
-<header>
-    <img src="logo.png" alt="DRISHTI.AI Logo" class="logo">
-    <h1>DRISHTI<span>.AI</span></h1>
-    <p>
-        An AI‑powered cybersecurity solution designed to help individuals
-        identify scam and phishing messages and make safer online decisions.
-    </p>
-</header>
-
-<section>
-    <h2>🚨 Problem Statement</h2>
-    <p>
-        Online scams and phishing attacks are increasing rapidly across
-        SMS, email, and messaging platforms. These messages often use fear,
-        urgency, or false authority to manipulate users into clicking
-        malicious links or sharing sensitive information.
-    </p>
-    <p>
-        Many individuals lack the technical knowledge required to determine
-        whether a message is genuine or fraudulent, leading to financial loss,
-        identity theft, and emotional stress.
-    </p>
-</section>
-
-<section>
-    <h2>💡 Our Solution</h2>
-    <p>
-        <strong>DRISHTI.AI</strong> is a simple and accessible web‑based tool
-        where users can paste any suspicious message for analysis.
-        The system uses AI to evaluate the content and classifies it as
-        <strong>Low</strong>, <strong>Medium</strong>, or <strong>High Risk</strong>.
-    </p>
-    <p>
-        Along with the risk level, DRISHTI.AI provides a clear explanation
-        in non‑technical language and general safety guidance. The goal is
-        awareness and prevention, not fear or dependency.
-    </p>
-</section>
-
-<section>
-    <h2>🛡️ Key Features</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>AI‑Based Message Understanding</h3>
-            <p>
-                Detects common scam patterns and social‑engineering tactics
-                used in fraudulent messages.
-            </p>
-        </div>
-        <div class="card">
-            <h3>Clear Risk Classification</h3>
-            <p>
-                Presents results as Low, Medium, or High risk for easy
-                understanding by non‑technical users.
-            </p>
-        </div>
-        <div class="card">
-            <h3>Responsible Use of AI</h3>
-            <p>
-                Does not provide legal or financial advice and does not claim
-                100% accuracy.
-            </p>
-        </div>
-    </div>
-</section>
-
-<section>
-    <h2>⚙️ Technology Stack</h2>
-    <ul>
-        <li>Microsoft Azure – Cloud hosting and deployment</li>
-        <li>Azure OpenAI – Scam and phishing text analysis</li>
-        <li>Azure AI Language – Natural language understanding</li>
-        <li>Python – Backend logic</li>
-        <li>FastAPI – API development</li>
-        <li>HTML, CSS, JavaScript – Web interface</li>
-    </ul>
-</section>
-
-<section>
-    <h2>👥 Team – DRISHTI Tech</h2>
-    <p>
-        “Drishti” means vision or insight, representing our goal to help
-        users clearly recognize digital threats. We are a student team
-        passionate about making cybersecurity accessible to everyone.
-    </p>
-    <p>
-        Each team member contributes across idea development, backend
-        systems, AI integration, and user experience design. Through
-        Imagine Cup, we aim to learn, innovate, and create social impact
-        using responsible AI.
-    </p>
-</section>
-
-<section>
-    <h2>🏆 Imagine Cup Alignment</h2>
-    <p>
-        DRISHTI.AI aligns with the Cybersecurity category of Imagine Cup by
-        demonstrating how AI can protect individuals, not just large
-        organizations. The solution is fully software‑based, scalable,
-        and accessible to anyone with an internet connection.
-    </p>
-</section>
-
-<section>
-    <h2>📧 Contact Us</h2>
-    <div class="contact-box">
-        <p>For questions, feedback, or collaboration:</p>
-        <a href="mailto:drishtiaims@gmail.com">drishtiaims@gmail.com</a>
-    </div>
-</section>
-
-<footer>
-    © 2026 DRISHTI Tech • Imagine Cup Cybersecurity Submission
-</footer>
-
-</body>
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+<title>DRISHTI.AI – Scam Detection</title> 
+<link 
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&displ
+ay=swap" rel="stylesheet"> 
+<style> 
+* { 
+margin: 0; 
+padding: 0; 
+box-sizing: border-box; 
+font-family: 'Inter', sans-serif; 
+} 
+body { 
+background: #0b1220; 
+color: #ffffff; 
+line-height: 1.6; 
+} 
+section { 
+padding: 60px 20px; 
+text-align: center; 
+} 
+/* HERO */ 
+.hero { 
+background: linear-gradient(135deg, #1e3c72, #2a5298); 
+} 
+.hero h1 { 
+font-size: 2.6rem; 
+margin-bottom: 10px; 
+} 
+.hero p { 
+opacity: 0.9; 
+} 
+button { 
+margin-top: 20px; 
+padding: 14px 32px; 
+background: #00d084; 
+border: none; 
+  border-radius: 30px; 
+  color: #000; 
+  font-weight: 600; 
+  cursor: pointer; 
+} 
+ 
+button:hover { 
+  background: #00b574; 
+} 
+ 
+/* CONTENT */ 
+.box { 
+  max-width: 900px; 
+  margin: auto; 
+} 
+ 
+.dark { 
+  background: #111827; 
+} 
+ 
+.cards { 
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+} 
+ 
+.card { 
+  background: #111827; 
+  padding: 25px; 
+  margin: 15px; 
+  border-radius: 12px; 
+  width: 200px; 
+} 
+ 
+/* INPUT */ 
+textarea { 
+  width: 90%; 
+  max-width: 700px; 
+  height: 140px; 
+  padding: 15px; 
+  border-radius: 12px; 
+  border: none; 
+} 
+ 
+/* FOOTER */ 
+footer { 
+  background: #0b1220; 
+  padding: 30px; 
+  opacity: 0.85; 
+} 
+</style> 
+</head> 
+ 
+<body> 
+ 
+<!-- HERO --> 
+<section class="hero"> 
+  <h1>DRISHTI.AI</h1> 
+  <p><strong>AI-Powered Scam & Phishing Detection</strong></p> 
+  <p>Helping users identify online scams instantly — before any harm 
+occurs.</p> 
+  <button 
+onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'}
+)"> 
+    Check a Suspicious Message 
+  </button> 
+  <p style="font-size:0.85rem;margin-top:10px;"> 
+    Hackathon Prototype • No Login • Privacy-First 
+  </p> 
+</section> 
+ 
+<!-- PROBLEM --> 
+<section class="box"> 
+  <h2>🚨 Problem Statement</h2> 
+  <p> 
+    Millions of people receive scam and phishing messages every day through 
+SMS, emails, 
+    and messaging apps. These messages exploit fear, urgency, or false 
+promises to trick 
+    users into clicking malicious links or sharing sensitive information. 
+  </p> 
+  <p> 
+    Most users lack the technical knowledge to verify whether a message is 
+genuine or 
+    fraudulent—leading to financial loss, identity theft, and emotional 
+stress. 
+  </p> 
+</section> 
+ 
+<!-- SOLUTION --> 
+<section class="dark"> 
+  <h2>💡 Our Solution</h2> 
+  <p> 
+    <strong>DRISHTI.AI</strong> is a simple AI-powered web tool that allows 
+users to paste 
+    suspicious messages and instantly receive a risk assessment. 
+  </p> 
+  <p> 
+    Messages are classified as <strong>Low, Medium, or High Risk</strong> 
+with clear, 
+    non-technical explanations and safety guidance. 
+  </p> 
+</section> 
+ 
+<!-- HOW IT WORKS --> 
+<section class="box"> 
+  <h2>⚙ How It Works</h2> 
+  <div class="cards"> 
+    <div class="card">📝<br><strong>Paste Message</strong></div> 
+    <div class="card">🤖<br><strong>AI Analysis</strong></div> 
+    <div class="card">🚦<br><strong>Risk Classification</strong></div> 
+    <div class="card">🛡<br><strong>Safety Guidance</strong></div> 
+  </div> 
+</section> 
+ 
+<!-- DEMO --> 
+<section id="demo" class="dark"> 
+  <h2>🔍 Try the Prototype</h2> 
+  <textarea placeholder="Paste a suspicious message 
+here..."></textarea><br> 
+  <button>Analyze Message</button> 
+<p style="font-size:0.85rem;margin-top:10px;"> 
+Prototype demo — AI backend to be integrated 
+</p> 
+</section> 
+<!-- FOOTER --> 
+<footer> 
+<p><strong>DRISHTI.AI</strong></p> 
+<p>Built by Team Drishti</p> 
+<p>Hosted on Microsoft Azure Static Web Apps</p> 
+<p>© 2026</p> 
+</footer> 
+</body> 
 </html>
