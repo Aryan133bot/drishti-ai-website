@@ -1,69 +1,84 @@
+<!DOCTYPE html>
 <html lang="en"> 
 <head> 
 <meta charset="UTF-8" /> 
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
 <title>DRISHTI.AI – Scam Detection</title> 
 <link 
-href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&displ
-ay=swap" rel="stylesheet"> 
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" 
+rel="stylesheet"> 
 <style> 
 * { 
-margin: 0; 
-padding: 0; 
-box-sizing: border-box; 
-font-family: 'Inter', sans-serif; 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+  font-family: 'Inter', sans-serif; 
 } 
+
 body { 
-background: #0b1220; 
-color: #ffffff; 
-line-height: 1.6; 
+  background: #0b1220; 
+  color: #ffffff; 
+  line-height: 1.6; 
 } 
+
 section { 
-padding: 60px 20px; 
-text-align: center; 
+  padding: 60px 20px; 
+  text-align: center; 
 } 
+
 /* HERO */ 
 .hero { 
-background: linear-gradient(135deg, #1e3c72, #2a5298); 
+  background: linear-gradient(135deg, #1e3c72, #2a5298); 
 } 
+
 .hero h1 { 
-font-size: 2.6rem; 
-margin-bottom: 10px; 
+  font-size: 2.6rem; 
+  margin-bottom: 10px; 
 } 
+
 .hero p { 
-opacity: 0.9; 
+  opacity: 0.9; 
 } 
+
 button { 
-margin-top: 20px; 
-padding: 14px 32px; 
-background: #00d084; 
-border: none; 
+  margin-top: 20px; 
+  padding: 14px 32px; 
+  background: #00d084; 
+  border: none; 
   border-radius: 30px; 
   color: #000; 
   font-weight: 600; 
   cursor: pointer; 
+  transition: all 0.3s ease;
 } 
- 
+
 button:hover { 
   background: #00b574; 
+  transform: translateY(-2px);
 } 
- 
+
+button:disabled {
+  background: #666;
+  cursor: not-allowed;
+  transform: none;
+}
+
 /* CONTENT */ 
 .box { 
   max-width: 900px; 
   margin: auto; 
 } 
- 
+
 .dark { 
   background: #111827; 
 } 
- 
+
 .cards { 
   display: flex; 
   flex-wrap: wrap; 
   justify-content: center; 
 } 
- 
+
 .card { 
   background: #111827; 
   padding: 25px; 
@@ -71,7 +86,7 @@ button:hover {
   border-radius: 12px; 
   width: 200px; 
 } 
- 
+
 /* INPUT */ 
 textarea { 
   width: 90%; 
@@ -80,8 +95,143 @@ textarea {
   padding: 15px; 
   border-radius: 12px; 
   border: none; 
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  background: #1f2937;
+  color: #fff;
 } 
- 
+
+textarea::placeholder {
+  color: #9ca3af;
+}
+
+/* RESULTS */ 
+.results-container {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 30px;
+  background: #1f2937;
+  border-radius: 12px;
+  text-align: left;
+  display: none;
+}
+
+.results-container.show {
+  display: block;
+  animation: slideIn 0.4s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.risk-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.risk-low {
+  background: #10b981;
+  color: #000;
+}
+
+.risk-medium {
+  background: #f59e0b;
+  color: #000;
+}
+
+.risk-high {
+  background: #ef4444;
+  color: #fff;
+}
+
+.results-section {
+  margin: 20px 0;
+}
+
+.results-section h3 {
+  color: #00d084;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.results-section p {
+  line-height: 1.8;
+  color: #d1d5db;
+}
+
+.results-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.results-section li {
+  padding: 8px 0;
+  padding-left: 25px;
+  position: relative;
+  color: #d1d5db;
+}
+
+.results-section li:before {
+  content: "•";
+  color: #00d084;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.confidence-bar {
+  width: 100%;
+  height: 8px;
+  background: #374151;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.confidence-fill {
+  height: 100%;
+  background: #00d084;
+  transition: width 0.5s ease;
+}
+
+.loading {
+  display: none;
+  margin-top: 20px;
+  color: #00d084;
+  font-style: italic;
+}
+
+.loading.show {
+  display: block;
+}
+
+.error-message {
+  color: #ef4444;
+  margin-top: 15px;
+  padding: 15px;
+  background: #1f2937;
+  border-radius: 8px;
+  display: none;
+}
+
+.error-message.show {
+  display: block;
+}
+
 /* FOOTER */ 
 footer { 
   background: #0b1220; 
@@ -90,58 +240,49 @@ footer {
 } 
 </style> 
 </head> 
- 
+
 <body> 
- 
+
 <!-- HERO --> 
 <section class="hero"> 
   <h1>DRISHTI.AI</h1> 
   <p><strong>AI-Powered Scam & Phishing Detection</strong></p> 
-  <p>Helping users identify online scams instantly — before any harm 
-occurs.</p> 
-  <button 
-onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'}
-)"> 
+  <p>Helping users identify online scams instantly — before any harm occurs.</p> 
+  <button onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})"> 
     Check a Suspicious Message 
   </button> 
   <p style="font-size:0.85rem;margin-top:10px;"> 
     Hackathon Prototype • No Login • Privacy-First 
   </p> 
 </section> 
- 
+
 <!-- PROBLEM --> 
 <section class="box"> 
   <h2>🚨 Problem Statement</h2> 
   <p> 
-    Millions of people receive scam and phishing messages every day through 
-SMS, emails, 
-    and messaging apps. These messages exploit fear, urgency, or false 
-promises to trick 
+    Millions of people receive scam and phishing messages every day through SMS, emails, 
+    and messaging apps. These messages exploit fear, urgency, or false promises to trick 
     users into clicking malicious links or sharing sensitive information. 
   </p> 
   <p> 
-    Most users lack the technical knowledge to verify whether a message is 
-genuine or 
-    fraudulent—leading to financial loss, identity theft, and emotional 
-stress. 
+    Most users lack the technical knowledge to verify whether a message is genuine or 
+    fraudulent—leading to financial loss, identity theft, and emotional stress. 
   </p> 
 </section> 
- 
+
 <!-- SOLUTION --> 
 <section class="dark"> 
   <h2>💡 Our Solution</h2> 
   <p> 
-    <strong>DRISHTI.AI</strong> is a simple AI-powered web tool that allows 
-users to paste 
+    <strong>DRISHTI.AI</strong> is a simple AI-powered web tool that allows users to paste 
     suspicious messages and instantly receive a risk assessment. 
   </p> 
   <p> 
-    Messages are classified as <strong>Low, Medium, or High Risk</strong> 
-with clear, 
+    Messages are classified as <strong>Low, Medium, or High Risk</strong> with clear, 
     non-technical explanations and safety guidance. 
   </p> 
 </section> 
- 
+
 <!-- HOW IT WORKS --> 
 <section class="box"> 
   <h2>⚙ How It Works</h2> 
@@ -152,24 +293,180 @@ with clear,
     <div class="card">🛡<br><strong>Safety Guidance</strong></div> 
   </div> 
 </section> 
- 
+
 <!-- DEMO --> 
 <section id="demo" class="dark"> 
   <h2>🔍 Try the Prototype</h2> 
-  <textarea placeholder="Paste a suspicious message 
-here..."></textarea><br> 
-  <button>Analyze Message</button> 
-<p style="font-size:0.85rem;margin-top:10px;"> 
-Prototype demo — AI backend to be integrated 
-</p> 
+  <textarea id="messageInput" placeholder="Paste a suspicious message here..."></textarea><br> 
+  <button id="analyzeBtn" onclick="analyzeMessage()">Analyze Message</button>
+  
+  <div class="loading" id="loadingIndicator">
+    Analyzing message with AI...
+  </div>
+  
+  <div class="error-message" id="errorMessage"></div>
+  
+  <div class="results-container" id="resultsContainer">
+    <div class="risk-badge" id="riskBadge">MEDIUM RISK</div>
+    
+    <div class="results-section">
+      <h3>Confidence Level</h3>
+      <div class="confidence-bar">
+        <div class="confidence-fill" id="confidenceFill"></div>
+      </div>
+      <p style="margin-top:5px; font-size:0.9rem;" id="confidenceText">75% confident</p>
+    </div>
+    
+    <div class="results-section">
+      <h3>Analysis</h3>
+      <p id="explanationText"></p>
+    </div>
+    
+    <div class="results-section">
+      <h3>Detected Indicators</h3>
+      <ul id="indicatorsList"></ul>
+    </div>
+    
+    <div class="results-section">
+      <h3>Safety Recommendations</h3>
+      <ul id="safetyTipsList"></ul>
+    </div>
+  </div>
+  
+  <p style="font-size:0.85rem;margin-top:20px;color:#9ca3af;"> 
+    Powered by Azure OpenAI • Results are for educational purposes
+  </p> 
 </section> 
+
 <!-- FOOTER --> 
 <footer> 
-<p><strong>DRISHTI.AI</strong></p> 
-<p>Built by Team Drishti</p> 
-<p>Hosted on GitHub</p> 
-<p>© 2026</p> 
+  <p><strong>DRISHTI.AI</strong></p> 
+  <p>Built by Team Drishti</p> 
+  <p>Hosted on Microsoft Azure Static Web Apps</p> 
+  <p>© 2026</p> 
 </footer> 
-</body> 
 
+<script>
+// Configuration - UPDATE THIS WITH YOUR BACKEND URL
+const API_URL = 'http://localhost:8000';  // Change to your deployed backend URL
+
+async function analyzeMessage() {
+  const messageInput = document.getElementById('messageInput');
+  const analyzeBtn = document.getElementById('analyzeBtn');
+  const loadingIndicator = document.getElementById('loadingIndicator');
+  const resultsContainer = document.getElementById('resultsContainer');
+  const errorMessage = document.getElementById('errorMessage');
+  
+  const message = messageInput.value.trim();
+  
+  // Validation
+  if (!message) {
+    showError('Please enter a message to analyze');
+    return;
+  }
+  
+  if (message.length > 5000) {
+    showError('Message is too long. Please limit to 5000 characters.');
+    return;
+  }
+  
+  // Reset UI
+  errorMessage.classList.remove('show');
+  resultsContainer.classList.remove('show');
+  loadingIndicator.classList.add('show');
+  analyzeBtn.disabled = true;
+  analyzeBtn.textContent = 'Analyzing...';
+  
+  try {
+    // Call backend API
+    const response = await fetch(`${API_URL}/api/analyze`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ message: message })
+    });
+    
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.detail || 'Analysis failed');
+    }
+    
+    const data = await response.json();
+    
+    // Display results
+    displayResults(data);
+    
+  } catch (error) {
+    console.error('Error:', error);
+    showError(`Analysis failed: ${error.message}. Please ensure the backend is running.`);
+  } finally {
+    loadingIndicator.classList.remove('show');
+    analyzeBtn.disabled = false;
+    analyzeBtn.textContent = 'Analyze Message';
+  }
+}
+
+function displayResults(data) {
+  const resultsContainer = document.getElementById('resultsContainer');
+  const riskBadge = document.getElementById('riskBadge');
+  const confidenceFill = document.getElementById('confidenceFill');
+  const confidenceText = document.getElementById('confidenceText');
+  const explanationText = document.getElementById('explanationText');
+  const indicatorsList = document.getElementById('indicatorsList');
+  const safetyTipsList = document.getElementById('safetyTipsList');
+  
+  // Risk level
+  riskBadge.textContent = `${data.risk_level.toUpperCase()} RISK`;
+  riskBadge.className = `risk-badge risk-${data.risk_level.toLowerCase()}`;
+  
+  // Confidence
+  const confidencePercent = Math.round(data.confidence * 100);
+  confidenceFill.style.width = `${confidencePercent}%`;
+  confidenceText.textContent = `${confidencePercent}% confident`;
+  
+  // Explanation
+  explanationText.textContent = data.explanation;
+  
+  // Indicators
+  indicatorsList.innerHTML = '';
+  data.indicators.forEach(indicator => {
+    const li = document.createElement('li');
+    li.textContent = indicator;
+    indicatorsList.appendChild(li);
+  });
+  
+  // Safety tips
+  safetyTipsList.innerHTML = '';
+  data.safety_tips.forEach(tip => {
+    const li = document.createElement('li');
+    li.textContent = tip;
+    safetyTipsList.appendChild(li);
+  });
+  
+  // Show results
+  resultsContainer.classList.add('show');
+  
+  // Scroll to results
+  setTimeout(() => {
+    resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }, 100);
+}
+
+function showError(message) {
+  const errorMessage = document.getElementById('errorMessage');
+  errorMessage.textContent = message;
+  errorMessage.classList.add('show');
+}
+
+// Allow Enter key to submit (Ctrl+Enter for new line)
+document.getElementById('messageInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' && !e.ctrlKey && !e.shiftKey) {
+    e.preventDefault();
+    analyzeMessage();
+  }
+});
+</script>
+
+</body> 
 </html>
