@@ -674,8 +674,7 @@ footer p strong {
 </footer> 
 
 <script>
-// Configuration - UPDATE THIS WITH YOUR BACKEND URL
-const API_URL = 'drishti-ai-api-hkb6ahckbebhb5gt.uaenorth-01.azurewebsites.net';  // Change to your deployed backend URL
+const API_URL = 'https://drishti-ai-api-hkb6ahckbebhb5gt.uaenorth-01.azurewebsites.net';
 
 async function analyzeMessage() {
   const messageInput = document.getElementById('messageInput');
@@ -683,62 +682,38 @@ async function analyzeMessage() {
   const loadingIndicator = document.getElementById('loadingIndicator');
   const resultsContainer = document.getElementById('resultsContainer');
   const errorMessage = document.getElementById('errorMessage');
-  
+
   const message = messageInput.value.trim();
-  
-  // Validation
+
   if (!message) {
     showError('Please enter a message to analyze');
     return;
   }
-  
-  if (message.length > 5000) {
-    showError('Message is too long. Please limit to 5000 characters.');
-    return;
-  }
-  
-  // Reset UI
+
   errorMessage.classList.remove('show');
   resultsContainer.classList.remove('show');
   loadingIndicator.classList.add('show');
   analyzeBtn.disabled = true;
   analyzeBtn.textContent = 'Analyzing...';
-  
+
   try {
-    // Call backend API
     const response = await fetch(`${API_URL}/api/analyze`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ message: message })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message })
     });
-    
-    let data;
 
-    try {
-      data = await response.json();
-    } catch (e) {
-      throw new Error("Backend returned invalid JSON");
-    }
-    
+    const text = await response.text(); // IMPORTANT
     if (!response.ok) {
-      throw new Error(data?.detail || "Backend error");
+      throw new Error(text || 'Backend error');
     }
-    
-    // success
+
+    const data = JSON.parse(text);
     displayResults(data);
 
-    }
-    
-    const data = await response.json();
-    
-    // Display results
-    displayResults(data);
-    
   } catch (error) {
-    console.error('Error:', error);
-    showError(`Analysis failed: ${error.message}. Please ensure the backend is running.`);
+    console.error(error);
+    showError('Analysis failed. Backend did not respond correctly.');
   } finally {
     loadingIndicator.classList.remove('show');
     analyzeBtn.disabled = false;
@@ -747,65 +722,47 @@ async function analyzeMessage() {
 }
 
 function displayResults(data) {
-  const resultsContainer = document.getElementById('resultsContainer');
-  const riskBadge = document.getElementById('riskBadge');
-  const confidenceFill = document.getElementById('confidenceFill');
-  const confidenceText = document.getElementById('confidenceText');
-  const explanationText = document.getElementById('explanationText');
-  const indicatorsList = document.getElementById('indicatorsList');
-  const safetyTipsList = document.getElementById('safetyTipsList');
-  
-  // Risk level
-  riskBadge.textContent = `${data.risk_level.toUpperCase()} RISK`;
-  riskBadge.className = `risk-badge risk-${data.risk_level.toLowerCase()}`;
-  
-  // Confidence
+  document.getElementById('riskBadge').textContent =
+    `${data.risk_level.toUpperCase()} RISK`;
+
+  document.getElementById('riskBadge').className =
+    `risk-badge risk-${data.risk_level.toLowerCase()}`;
+
   const confidencePercent = Math.round(data.confidence * 100);
-  confidenceFill.style.width = `${confidencePercent}%`;
-  confidenceText.textContent = `${confidencePercent}% confident`;
-  
-  // Explanation
-  explanationText.textContent = data.explanation;
-  
-  // Indicators
+  document.getElementById('confidenceFill').style.width =
+    `${confidencePercent}%`;
+
+  document.getElementById('confidenceText').textContent =
+    `${confidencePercent}% confident`;
+
+  document.getElementById('explanationText').textContent = data.explanation;
+
+  const indicatorsList = document.getElementById('indicatorsList');
   indicatorsList.innerHTML = '';
-  data.indicators.forEach(indicator => {
+  data.indicators.forEach(i => {
     const li = document.createElement('li');
-    li.textContent = indicator;
+    li.textContent = i;
     indicatorsList.appendChild(li);
   });
-  
-  // Safety tips
+
+  const safetyTipsList = document.getElementById('safetyTipsList');
   safetyTipsList.innerHTML = '';
-  data.safety_tips.forEach(tip => {
+  data.safety_tips.forEach(t => {
     const li = document.createElement('li');
-    li.textContent = tip;
+    li.textContent = t;
     safetyTipsList.appendChild(li);
   });
-  
-  // Show results
-  resultsContainer.classList.add('show');
-  
-  // Scroll to results
-  setTimeout(() => {
-    resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }, 100);
+
+  document.getElementById('resultsContainer').classList.add('show');
 }
 
-function showError(message) {
-  const errorMessage = document.getElementById('errorMessage');
-  errorMessage.textContent = message;
-  errorMessage.classList.add('show');
+function showError(msg) {
+  const e = document.getElementById('errorMessage');
+  e.textContent = msg;
+  e.classList.add('show');
 }
-
-// Allow Enter key to submit (Ctrl+Enter for new line)
-document.getElementById('messageInput').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter' && !e.ctrlKey && !e.shiftKey) {
-    e.preventDefault();
-    analyzeMessage();
-  }
-});
 </script>
+
 
 </body> 
 </html>
