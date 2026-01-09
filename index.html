@@ -714,9 +714,21 @@ async function analyzeMessage() {
       body: JSON.stringify({ message: message })
     });
     
+    let data;
+
+    try {
+      data = await response.json();
+    } catch (e) {
+      throw new Error("Backend returned invalid JSON");
+    }
+    
     if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.detail || 'Analysis failed');
+      throw new Error(data?.detail || "Backend error");
+    }
+    
+    // success
+    displayResults(data);
+
     }
     
     const data = await response.json();
