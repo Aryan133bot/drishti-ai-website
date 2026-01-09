@@ -3,128 +3,361 @@
 <head> 
 <meta charset="UTF-8" /> 
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-<title>DRISHTI.AI – Scam Detection</title> 
-<link 
-href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" 
-rel="stylesheet"> 
+<title>DRISHTI.AI – AI Scam Detection</title> 
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 <style> 
 * { 
   margin: 0; 
   padding: 0; 
   box-sizing: border-box; 
-  font-family: 'Inter', sans-serif; 
 } 
 
 body { 
-  background: #0b1220; 
+  background: #0f1729; 
   color: #ffffff; 
   line-height: 1.6; 
+  font-family: 'Open Sans', sans-serif;
 } 
 
 section { 
-  padding: 60px 20px; 
+  padding: 80px 20px; 
   text-align: center; 
 } 
 
 /* HERO */ 
 .hero { 
-  background: linear-gradient(135deg, #1e3c72, #2a5298); 
-} 
+  background: linear-gradient(135deg, #1a2c52 0%, #2d4a7c 50%, #1e3554 100%);
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.logo-container {
+  margin-bottom: 30px;
+  animation: fadeInDown 0.8s ease;
+}
+
+.logo {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px;
+  position: relative;
+}
+
+.shield {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3);
+}
+
+.eye-icon {
+  width: 60px;
+  height: 40px;
+  position: relative;
+}
+
+.eye-outer {
+  width: 100%;
+  height: 100%;
+  border: 4px solid white;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  position: relative;
+}
+
+.eye-inner {
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.eye-pupil {
+  width: 12px;
+  height: 12px;
+  background: #1a2c52;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sparkles {
+  position: absolute;
+  top: -5px;
+  right: 10px;
+}
+
+.sparkle {
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  animation: twinkle 2s infinite;
+}
+
+.sparkle:nth-child(1) { top: 0; left: 0; animation-delay: 0s; }
+.sparkle:nth-child(2) { top: 8px; left: 4px; animation-delay: 0.3s; }
+.sparkle:nth-child(3) { top: 4px; left: 8px; animation-delay: 0.6s; }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.8); }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .hero h1 { 
-  font-size: 2.6rem; 
-  margin-bottom: 10px; 
-} 
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.5rem; 
+  margin-bottom: 15px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.hero .tagline {
+  font-size: 1.3rem;
+  color: #93c5fd;
+  font-weight: 600;
+  margin-bottom: 15px;
+  animation: fadeInUp 0.8s ease 0.3s both;
+}
 
 .hero p { 
-  opacity: 0.9; 
-} 
+  opacity: 0.9;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 button { 
-  margin-top: 20px; 
-  padding: 14px 32px; 
-  background: #00d084; 
+  margin-top: 30px; 
+  padding: 16px 40px; 
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   border: none; 
-  border-radius: 30px; 
-  color: #000; 
-  font-weight: 600; 
+  border-radius: 50px; 
+  color: #fff; 
+  font-weight: 700;
+  font-size: 1rem;
   cursor: pointer; 
   transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  animation: fadeInUp 0.8s ease 0.5s both;
 } 
 
 button:hover { 
-  background: #00b574; 
-  transform: translateY(-2px);
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 30px rgba(16, 185, 129, 0.6);
 } 
 
 button:disabled {
-  background: #666;
+  background: #4b5563;
   cursor: not-allowed;
   transform: none;
+  box-shadow: none;
+}
+
+.hero-footer {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #9ca3af;
+  animation: fadeInUp 0.8s ease 0.6s both;
 }
 
 /* CONTENT */ 
 .box { 
-  max-width: 900px; 
+  max-width: 1000px; 
   margin: auto; 
+  padding: 80px 40px;
 } 
 
 .dark { 
-  background: #111827; 
-} 
+  background: #1a2332; 
+}
+
+.box h2, .dark h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.box p, .dark p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #d1d5db;
+  margin-bottom: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .cards { 
   display: flex; 
   flex-wrap: wrap; 
-  justify-content: center; 
+  justify-content: center;
+  gap: 30px;
+  margin-top: 50px;
 } 
 
 .card { 
-  background: #111827; 
-  padding: 25px; 
-  margin: 15px; 
-  border-radius: 12px; 
-  width: 200px; 
-} 
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d4a7c 100%);
+  padding: 40px 30px; 
+  border-radius: 20px; 
+  width: 220px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+  border-color: rgba(16, 185, 129, 0.5);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.card strong {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  color: #fff;
+  display: block;
+  margin-top: 10px;
+}
 
 /* INPUT */ 
+.input-section {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 textarea { 
-  width: 90%; 
-  max-width: 700px; 
-  height: 140px; 
-  padding: 15px; 
-  border-radius: 12px; 
-  border: none; 
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  background: #1f2937;
+  width: 100%; 
+  max-width: 800px; 
+  height: 160px; 
+  padding: 20px; 
+  border-radius: 16px; 
+  border: 2px solid #2d4a7c;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  background: #0f1729;
   color: #fff;
+  transition: all 0.3s ease;
+  resize: vertical;
 } 
 
+textarea:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
 textarea::placeholder {
-  color: #9ca3af;
+  color: #6b7280;
 }
 
 /* RESULTS */ 
 .results-container {
-  max-width: 700px;
-  margin: 30px auto;
-  padding: 30px;
-  background: #1f2937;
-  border-radius: 12px;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 40px;
+  background: linear-gradient(135deg, #1e3a5f 0%, #1a2c52 100%);
+  border-radius: 20px;
   text-align: left;
   display: none;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
 .results-container.show {
   display: block;
-  animation: slideIn 0.4s ease;
+  animation: slideIn 0.5s ease;
 }
 
 @keyframes slideIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -134,41 +367,50 @@ textarea::placeholder {
 
 .risk-badge {
   display: inline-block;
-  padding: 8px 20px;
-  border-radius: 20px;
+  padding: 12px 28px;
+  border-radius: 30px;
   font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: 15px;
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .risk-low {
-  background: #10b981;
-  color: #000;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
 }
 
 .risk-medium {
-  background: #f59e0b;
-  color: #000;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
 }
 
 .risk-high {
-  background: #ef4444;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
   color: #fff;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
 }
 
 .results-section {
-  margin: 20px 0;
+  margin: 30px 0;
 }
 
 .results-section h3 {
-  color: #00d084;
-  margin-bottom: 10px;
-  font-size: 1.1rem;
+  color: #10b981;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
 }
 
 .results-section p {
-  line-height: 1.8;
-  color: #d1d5db;
+  line-height: 1.9;
+  color: #e5e7eb;
+  font-size: 1.05rem;
 }
 
 .results-section ul {
@@ -177,55 +419,66 @@ textarea::placeholder {
 }
 
 .results-section li {
-  padding: 8px 0;
-  padding-left: 25px;
+  padding: 12px 0;
+  padding-left: 30px;
   position: relative;
-  color: #d1d5db;
+  color: #e5e7eb;
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
 
 .results-section li:before {
-  content: "•";
-  color: #00d084;
+  content: "✓";
+  color: #10b981;
   font-weight: bold;
   position: absolute;
   left: 0;
-  font-size: 1.5rem;
-  line-height: 1;
+  font-size: 1.3rem;
+  line-height: 1.6;
 }
 
 .confidence-bar {
   width: 100%;
-  height: 8px;
-  background: #374151;
-  border-radius: 4px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
   overflow: hidden;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .confidence-fill {
   height: 100%;
-  background: #00d084;
-  transition: width 0.5s ease;
+  background: linear-gradient(90deg, #10b981, #3b82f6);
+  transition: width 0.8s ease;
+  border-radius: 10px;
 }
 
 .loading {
   display: none;
-  margin-top: 20px;
-  color: #00d084;
+  margin-top: 30px;
+  color: #10b981;
   font-style: italic;
+  font-size: 1.1rem;
 }
 
 .loading.show {
   display: block;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
 .error-message {
-  color: #ef4444;
-  margin-top: 15px;
-  padding: 15px;
-  background: #1f2937;
-  border-radius: 8px;
+  color: #fca5a5;
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 12px;
   display: none;
+  border-left: 4px solid #ef4444;
 }
 
 .error-message.show {
@@ -234,10 +487,44 @@ textarea::placeholder {
 
 /* FOOTER */ 
 footer { 
-  background: #0b1220; 
-  padding: 30px; 
-  opacity: 0.85; 
+  background: #0a0f1a; 
+  padding: 50px 20px; 
+  border-top: 1px solid rgba(59, 130, 246, 0.2);
 } 
+
+footer p {
+  margin: 8px 0;
+  color: #9ca3af;
+}
+
+footer p strong {
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .box h2, .dark h2 {
+    font-size: 2rem;
+  }
+  
+  .cards {
+    gap: 20px;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .results-container {
+    padding: 30px 20px;
+  }
+}
 </style> 
 </head> 
 
@@ -245,20 +532,41 @@ footer {
 
 <!-- HERO --> 
 <section class="hero"> 
-  <h1>DRISHTI.AI</h1> 
-  <p><strong>AI-Powered Scam & Phishing Detection</strong></p> 
-  <p>Helping users identify online scams instantly — before any harm occurs.</p> 
-  <button onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})"> 
-    Check a Suspicious Message 
-  </button> 
-  <p style="font-size:0.85rem;margin-top:10px;"> 
-    Hackathon Prototype • No Login • Privacy-First 
-  </p> 
+  <div class="hero-content">
+    <div class="logo-container">
+      <div class="logo">
+        <div class="shield">
+          <div class="eye-icon">
+            <div class="eye-outer">
+              <div class="eye-inner">
+                <div class="eye-pupil"></div>
+              </div>
+            </div>
+          </div>
+          <div class="sparkles">
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <h1>DRISHTI.AI</h1> 
+    <p class="tagline">AI Scam Detection</p> 
+    <p>Protect yourself from online scams with AI-powered message analysis.<br>Get instant risk assessments before any harm occurs.</p> 
+    <button onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})"> 
+      Check Message Now
+    </button> 
+    <p class="hero-footer"> 
+      Hackathon Prototype • Privacy-First • No Login Required
+    </p>
+  </div>
 </section> 
 
 <!-- PROBLEM --> 
 <section class="box"> 
-  <h2>🚨 Problem Statement</h2> 
+  <h2>🚨 The Problem</h2> 
   <p> 
     Millions of people receive scam and phishing messages every day through SMS, emails, 
     and messaging apps. These messages exploit fear, urgency, or false promises to trick 
@@ -275,65 +583,83 @@ footer {
   <h2>💡 Our Solution</h2> 
   <p> 
     <strong>DRISHTI.AI</strong> is a simple AI-powered web tool that allows users to paste 
-    suspicious messages and instantly receive a risk assessment. 
+    suspicious messages and instantly receive a comprehensive risk assessment. 
   </p> 
   <p> 
     Messages are classified as <strong>Low, Medium, or High Risk</strong> with clear, 
-    non-technical explanations and safety guidance. 
+    non-technical explanations and actionable safety guidance. 
   </p> 
 </section> 
 
 <!-- HOW IT WORKS --> 
 <section class="box"> 
-  <h2>⚙ How It Works</h2> 
+  <h2>⚙️ How It Works</h2> 
   <div class="cards"> 
-    <div class="card">📝<br><strong>Paste Message</strong></div> 
-    <div class="card">🤖<br><strong>AI Analysis</strong></div> 
-    <div class="card">🚦<br><strong>Risk Classification</strong></div> 
-    <div class="card">🛡<br><strong>Safety Guidance</strong></div> 
+    <div class="card">
+      <span class="card-icon">📋</span>
+      <strong>Paste Message</strong>
+      <p style="font-size:0.9rem;margin-top:10px;color:#9ca3af;">Copy any suspicious message</p>
+    </div> 
+    <div class="card">
+      <span class="card-icon">🤖</span>
+      <strong>AI Analysis</strong>
+      <p style="font-size:0.9rem;margin-top:10px;color:#9ca3af;">Advanced pattern detection</p>
+    </div> 
+    <div class="card">
+      <span class="card-icon">🚦</span>
+      <strong>Risk Assessment</strong>
+      <p style="font-size:0.9rem;margin-top:10px;color:#9ca3af;">Instant classification</p>
+    </div> 
+    <div class="card">
+      <span class="card-icon">🛡️</span>
+      <strong>Safety Guidance</strong>
+      <p style="font-size:0.9rem;margin-top:10px;color:#9ca3af;">Clear action steps</p>
+    </div> 
   </div> 
 </section> 
 
 <!-- DEMO --> 
 <section id="demo" class="dark"> 
-  <h2>🔍 Try the Prototype</h2> 
-  <textarea id="messageInput" placeholder="Paste a suspicious message here..."></textarea><br> 
-  <button id="analyzeBtn" onclick="analyzeMessage()">Analyze Message</button>
-  
-  <div class="loading" id="loadingIndicator">
-    Analyzing message with AI...
-  </div>
-  
-  <div class="error-message" id="errorMessage"></div>
-  
-  <div class="results-container" id="resultsContainer">
-    <div class="risk-badge" id="riskBadge">MEDIUM RISK</div>
+  <h2>🔍 Try the Detector</h2> 
+  <div class="input-section">
+    <textarea id="messageInput" placeholder="Paste a suspicious message here to analyze..."></textarea><br> 
+    <button id="analyzeBtn" onclick="analyzeMessage()">Analyze Message</button>
     
-    <div class="results-section">
-      <h3>Confidence Level</h3>
-      <div class="confidence-bar">
-        <div class="confidence-fill" id="confidenceFill"></div>
+    <div class="loading" id="loadingIndicator">
+      🔄 Analyzing message with AI...
+    </div>
+    
+    <div class="error-message" id="errorMessage"></div>
+    
+    <div class="results-container" id="resultsContainer">
+      <div class="risk-badge" id="riskBadge">MEDIUM RISK</div>
+      
+      <div class="results-section">
+        <h3>Confidence Level</h3>
+        <div class="confidence-bar">
+          <div class="confidence-fill" id="confidenceFill"></div>
+        </div>
+        <p style="margin-top:8px; font-size:0.95rem; color:#9ca3af;" id="confidenceText">75% confident</p>
       </div>
-      <p style="margin-top:5px; font-size:0.9rem;" id="confidenceText">75% confident</p>
-    </div>
-    
-    <div class="results-section">
-      <h3>Analysis</h3>
-      <p id="explanationText"></p>
-    </div>
-    
-    <div class="results-section">
-      <h3>Detected Indicators</h3>
-      <ul id="indicatorsList"></ul>
-    </div>
-    
-    <div class="results-section">
-      <h3>Safety Recommendations</h3>
-      <ul id="safetyTipsList"></ul>
+      
+      <div class="results-section">
+        <h3>Analysis</h3>
+        <p id="explanationText"></p>
+      </div>
+      
+      <div class="results-section">
+        <h3>Detected Indicators</h3>
+        <ul id="indicatorsList"></ul>
+      </div>
+      
+      <div class="results-section">
+        <h3>Safety Recommendations</h3>
+        <ul id="safetyTipsList"></ul>
+      </div>
     </div>
   </div>
   
-  <p style="font-size:0.85rem;margin-top:20px;color:#9ca3af;"> 
+  <p style="font-size:0.9rem;margin-top:30px;color:#6b7280;"> 
     Powered by Azure OpenAI • Results are for educational purposes
   </p> 
 </section> 
@@ -341,9 +667,10 @@ footer {
 <!-- FOOTER --> 
 <footer> 
   <p><strong>DRISHTI.AI</strong></p> 
+  <p>AI-Powered Scam Detection</p>
   <p>Built by Team Drishti</p> 
   <p>Hosted on Microsoft Azure Static Web Apps</p> 
-  <p>© 2026</p> 
+  <p>© 2026 DRISHTI.AI</p> 
 </footer> 
 
 <script>
